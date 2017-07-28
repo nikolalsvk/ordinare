@@ -22,6 +22,9 @@ module Ordinare
     end.parse!
   end
 
-  def sort
+  def sort(path = "Gemfile")
+    unless File.file?(path)
+      abort("No Gemfile found in the current directory, is this a Rails project with Gemfile?")
+    end
   end
 end
