@@ -12,6 +12,10 @@ module Ordinare
     OptionParser.new do |opts|
       opts.banner = "Usage: ordinare inside your Rails project"
 
+      opts.on("-pFILE", "--path=FILE", "Order file") do |filename|
+        Ordinare.sort(filename)
+      end
+
       opts.on("-v", "--version", "Check gem version") do
         puts Ordinare::VERSION
       end
