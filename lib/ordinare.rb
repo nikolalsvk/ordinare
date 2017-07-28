@@ -30,5 +30,13 @@ module Ordinare
     unless File.file?(path)
       abort("No Gemfile found in the current directory, is this a Rails project with Gemfile?")
     end
+
+    content = File.readlines(path)
+
+    content.sort
+
+    File.open("#{path}.ordinare", "w+") do |file|
+      content.each { |line| file.puts(line) }
+    end
   end
 end
