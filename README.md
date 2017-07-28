@@ -15,7 +15,7 @@ $ gem install ordinare
 Position yourself inside Rails project with Gemfile and do:
 
 ```
-ordinare
+$ ordinare
 ```
 
 You can find your ordered Gemfile at `Gemfile.ordinare` in the root of your
@@ -26,7 +26,7 @@ Rails project
 You can pass in path to your gemfile
 
 ```
-ordinare --path my_awesome_project/Gemfile
+$ ordinare --path my_awesome_project/Gemfile
 ```
 
 You can find your ordered Gemfile at `my_awesome_project/Gemfile.ordinare`
