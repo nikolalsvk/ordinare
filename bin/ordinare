@@ -2,4 +2,9 @@
 
 require "ordinare"
 
-puts Ordinare.hi
+if ARGV.size > 0
+  puts Ordinare.parse_args
+else
+  Ordinare.sort
+end
+
