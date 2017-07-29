@@ -24,7 +24,8 @@ describe Ordinare do
         basic_gemfile = "spec/fixtures/basic_gemfile/Gemfile"
         Ordinare.sort(basic_gemfile)
 
-        FileUtils.identical?("#{basic_gemfile}.ordered", "#{basic_gemfile}.ordinare")
+        same_files = FileUtils.identical?("#{basic_gemfile}.ordered", "#{basic_gemfile}.ordinare")
+        expect(same_files).to be_truthy
       end
     end
   end
