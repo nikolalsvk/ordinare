@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.homepage      = "https://github.com/nikolalsvk/ordinare"
   s.executables   = "ordinare"
 
-  s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec", "~> 3.6", ">= 3.6"
 end

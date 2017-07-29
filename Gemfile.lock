@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ordinare (0.0.2)
+    ordinare (0.2.4)
 
 GEM
   remote: https://rubygems.org/
