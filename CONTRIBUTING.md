@@ -41,7 +41,7 @@ everyone is a beginner at first :smile_cat:
 
 ### 5. Make a Pull Request
 
-At this point, you should switch back to your master branch and make sure it's
+You should switch back to your master branch and make sure it's
 up to date with ordinare's master branch:
 
 ```sh
@@ -62,7 +62,7 @@ Finally, go to GitHub and
 [make a Pull Request](https://help.github.com/articles/creating-a-pull-request)
 :D
 
-Semaphore will run our tests and report back 
+Semaphore will run our tests and report back with tests results.
 
 ### 6. Keeping your Pull Request updated
 
