@@ -1,6 +1,7 @@
 # ordinare
 
 [![Build Status](https://semaphoreci.com/api/v1/nikolalsvk/ordinare/branches/master/shields_badge.svg)](https://semaphoreci.com/nikolalsvk/ordinare)
+[![Gem Version](https://badge.fury.io/rb/ordinare.svg)](https://badge.fury.io/rb/ordinare)
 
 Ordinare sorts gems in your Gemfile alphabetically
 
