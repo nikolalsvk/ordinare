@@ -33,7 +33,7 @@ module Ordinare
 
     content = File.readlines(path)
 
-    content.sort
+    content = content.sort
 
     File.open("#{path}.ordinare", "w+") do |file|
       content.each { |line| file.puts(line) }
