@@ -16,10 +16,6 @@ describe Ordinare do
     end
 
     context "Gemfile found" do
-      it "doesn't abort with message" do
-        expect { Ordinare.sort("spec/fixtures/Gemfile") }.not_to raise_error(SystemExit)
-      end
-
       it "sorts basic Gemfile" do
         basic_gemfile = "spec/fixtures/basic_gemfile/Gemfile"
         Ordinare.sort(basic_gemfile)
