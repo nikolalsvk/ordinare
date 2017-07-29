@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gemspec
+
+# Auth
+gem "authenticator"
+gem "devise"
+
+# Assets
+gem "angular"
+gem "jquery"
+gem "rails-assets"
