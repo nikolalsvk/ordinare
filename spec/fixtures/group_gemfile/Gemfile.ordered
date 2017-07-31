@@ -10,3 +10,8 @@ gem "devise"
 gem "angular"
 gem "jquery"
 gem "rails-assets"
+
+group :test do
+  gem "cucumber-rails"
+  gem "webmock"
+end

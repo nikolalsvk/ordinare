@@ -47,7 +47,7 @@ module Ordinare
 
   def find_ranges_of_gems(content)
     gems = content.each_with_index.map do |line, index|
-      if line.start_with?("gem ")
+      if line.strip.start_with?("gem ")
         index
       end
     end

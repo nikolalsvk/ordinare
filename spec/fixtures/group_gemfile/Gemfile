@@ -10,3 +10,8 @@ gem "authenticator"
 gem "rails-assets"
 gem "jquery"
 gem "angular"
+
+group :test do
+  gem "webmock"
+  gem "cucumber-rails"
+end
