@@ -6,6 +6,8 @@
 
 Ordinare sorts gems in your Gemfile alphabetically
 
+![ordinare GIF](ordinare.gif)
+
 In order to install the gem, do:
 
 ```
