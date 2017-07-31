@@ -25,7 +25,7 @@ $ ordinare
 You can find your ordered Gemfile at `Gemfile.ordinare` in the root of your
 Rails project
 
-## Advance usage
+## Advanced usage
 
 You can pass in path to your gemfile
 
