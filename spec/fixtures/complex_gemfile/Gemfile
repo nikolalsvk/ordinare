@@ -1,0 +1,59 @@
+source 'http://rubygems.org'
+
+ruby '2.3.1'
+
+gem 'rails', '4.2.7.1'
+
+gem 'coffee-rails', "~> 4.0.1"
+gem 'uglifier', "~> 2.7.2"
+
+gem 'compass-rails', '~> 2.0'
+gem 'sass-rails', '~> 4.0.0'
+
+group :test do
+  gem 'capybara', '~> 2.6.2'
+  gem "rspec-rails", "~>3.0"
+
+  gem 'cucumber-rails', '~> 1.4.0', require: false # require: false is needed for cucumber-rails
+
+  gem 'selenium-webdriver', '~> 2.45'
+
+  # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'email_spec', '~> 1.6.0'
+  gem 'timecop', '~> 0.6.3'
+  gem 'rack-test', "~> 0.6.2"
+  gem 'database_cleaner', '~> 1.1'
+  gem 'connection_pool', "~> 2.1"
+
+  # required for CircleCI automatic test balancing
+  gem 'rspec_junit_formatter'
+end
+
+group :development, :test do
+  gem 'pry-byebug'
+end
+
+gem 'therubyracer', '~> 0.12.2', platforms: :ruby
+gem 'js-routes', '~> 1.2.5'
+
+# Color utilities needed for landing page
+gem 'color', '~> 1.8'
+
+gem 'uuidtools', '~> 2.1'
+gem 'transit-ruby', '~> 0.8'
+
+# Markdown parser
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+
+gem 'twilio-ruby', '~> 4.11.1'
+
+gem 'intercom', '~> 3.5.10'
+
+gem 'simple_token_authentication', '~> 1.0'
+
+gem 'daemons'
+
+gem "select2-rails"
+
+gem 'client_side_validations'
