@@ -43,6 +43,8 @@ module Ordinare
     File.open("#{path}.ordinare", "w+") do |file|
       content.each { |line| file.puts(line) }
     end
+
+    puts "Your sorted Gemfile can be found at #{path}.ordinare"
   end
 
   def find_ranges_of_gems(content)
