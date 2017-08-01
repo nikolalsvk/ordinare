@@ -79,8 +79,4 @@ module Ordinare
     end
     ranges_to_sort
   end
-
-  def range_inside(range)
-
-  end
 end
