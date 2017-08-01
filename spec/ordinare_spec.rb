@@ -31,6 +31,14 @@ describe Ordinare do
         same_files = FileUtils.identical?("#{group_gemfile}.ordered", "#{group_gemfile}.ordinare")
         expect(same_files).to be_truthy
       end
+
+      it "sorts complicated Gemfile" do
+        complex_gemfile = "spec/fixtures/complex_gemfile/Gemfile"
+        Ordinare.sort(complex_gemfile)
+
+        same_files = FileUtils.identical?("#{complex_gemfile}.ordered", "#{complex_gemfile}.ordinare")
+        expect(same_files).to be_truthy
+      end
     end
   end
 end
