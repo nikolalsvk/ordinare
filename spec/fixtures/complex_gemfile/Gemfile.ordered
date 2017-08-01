@@ -57,3 +57,4 @@ gem 'daemons'
 gem "select2-rails"
 
 gem 'client_side_validations'
+

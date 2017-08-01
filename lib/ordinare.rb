@@ -62,7 +62,7 @@ module Ordinare
       start_index = current_range[:start_index]
       end_index = current_range[:end_index]
 
-      if gem && !gems[index - 1]
+      if gem && !gems[index - 1] && gems[index + 1]
         current_range[:start_index] = index
         current_range[:end_index] = index if index == gems.length - 1
 
