@@ -64,15 +64,23 @@ module Ordinare
 
       if gem && !gems[index - 1]
         current_range[:start_index] = index
+        current_range[:end_index] = index if index == gems.length - 1
 
-        ranges_to_sort << current_range
+        ranges_to_sort << current_range unless ranges_to_sort.any? { |range| range[:start_index] == index }
       elsif gem && gems[index - 1] && !gems[index + 1]
         ranges_to_sort.map do |range|
-          range[:start_index] == start_index ? current_range[:end_index] = index : range
+          if range[:start_index] == start_index
+            range[:end_index] = index
+          end
+
           range
         end
       end
     end
     ranges_to_sort
+  end
+
+  def range_inside(range)
+
   end
 end
