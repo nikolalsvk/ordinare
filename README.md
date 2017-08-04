@@ -23,8 +23,12 @@ $ ordinare
 ```
 
 And that's it!
-You can find your ordered Gemfile at `Gemfile.ordinare` in the root of your
-Rails project.
+Ordinare will sort your Gemfile and overwrite your current Gemfile.
+
+If you don't want ordinare to overwrite your Gemfile, see [Don't overwrite Gemfile](#dont-overwrite-gemfile).
+
+_NOTE: be sure to do `$ bundle install` after ordinare sorts your Gemfile just
+to make sure everything is OK._
 
 ### Love for the gem groups :heart:
 
@@ -64,19 +68,35 @@ gem "pusher"
 
 ...
 ```
-ordinare will sort gems below your comments, treating them as groups 
+ordinare will sort gems below your comments, treating them as groups
 (e.g. "Auth" group and "Assets" group).
 
 ## Advanced usage :hammer_and_pick:
 
-You can pass in path to your gemfile
+### Pass in path to Gemfile
+
+You can pass in path to your gemfile:
 
 ```
 $ ordinare --path my_awesome_project/Gemfile
 ```
 
 And that's it!
-You can find your ordered Gemfile at `my_awesome_project/Gemfile.ordinare`.
+You can find your ordered Gemfile at `my_awesome_project/Gemfile`.
+
+### Don't overwrite Gemfile
+
+Ordinare has an option that will make Gemfile.ordinare instead of overwriting
+your original Gemfile.
+
+Just call ordinare like this:
+
+```
+$ ordinare --no-overwrite
+```
+
+And that's it!
+You can find your ordered Gemfile at `Gemfile.ordinare`.
 
 ## Contributing :writing_hand:
 
