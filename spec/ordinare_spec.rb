@@ -11,14 +11,14 @@ describe Ordinare do
   describe "sort" do
     context "no Gemfile found" do
       it "aborts with message" do
-        expect { Ordinare.sort("spec/fixtures/no_gemfile") }.to raise_error(SystemExit)
+        expect { Ordinare.sort(false, "spec/fixtures/no_gemfile") }.to raise_error(SystemExit)
       end
     end
 
     context "Gemfile found" do
       it "sorts basic Gemfile" do
         basic_gemfile = "spec/fixtures/basic_gemfile/Gemfile"
-        Ordinare.sort(basic_gemfile)
+        Ordinare.sort(false, basic_gemfile)
 
         same_files = FileUtils.identical?("#{basic_gemfile}.ordered", "#{basic_gemfile}.ordinare")
         expect(same_files).to be_truthy
@@ -26,7 +26,7 @@ describe Ordinare do
 
       it "sorts Gemfile with groups" do
         group_gemfile = "spec/fixtures/group_gemfile/Gemfile"
-        Ordinare.sort(group_gemfile)
+        Ordinare.sort(false, group_gemfile)
 
         same_files = FileUtils.identical?("#{group_gemfile}.ordered", "#{group_gemfile}.ordinare")
         expect(same_files).to be_truthy
@@ -34,7 +34,7 @@ describe Ordinare do
 
       it "sorts complicated Gemfile" do
         complex_gemfile = "spec/fixtures/complex_gemfile/Gemfile"
-        Ordinare.sort(complex_gemfile)
+        Ordinare.sort(false, complex_gemfile)
 
         same_files = FileUtils.identical?("#{complex_gemfile}.ordered", "#{complex_gemfile}.ordinare")
         expect(same_files).to be_truthy

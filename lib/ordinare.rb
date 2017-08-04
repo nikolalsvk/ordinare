@@ -13,7 +13,11 @@ module Ordinare
       opts.banner = "Usage: ordinare inside your Rails project"
 
       opts.on("-pFILE", "--path=FILE", "Order file") do |filename|
-        Ordinare.sort(filename)
+        Ordinare.sort(true, filename)
+      end
+
+      opts.on("-n", "--no-overwrite", "Don't overwrite Gemfile") do
+        Ordinare.sort(false)
       end
 
       opts.on("-v", "--version", "Check gem version") do
@@ -26,7 +30,7 @@ module Ordinare
     end.parse!
   end
 
-  def sort(path = "Gemfile")
+  def sort(overwrite = true, path = "Gemfile")
     unless File.file?(path)
       abort("No Gemfile found in the current directory, is this a Rails project with Gemfile?")
     end
@@ -40,11 +44,13 @@ module Ordinare
         content[range[:start_index]..range[:end_index]].sort
     end
 
-    File.open("#{path}.ordinare", "w+") do |file|
+    path = "#{path}.ordinare" unless overwrite
+
+    File.open(path, "w+") do |file|
       content.each { |line| file.puts(line) }
     end
 
-    puts "Your sorted Gemfile can be found at #{path}.ordinare"
+    puts "Your sorted Gemfile can be found at #{path} path"
   end
 
   def find_ranges_of_gems(content)
