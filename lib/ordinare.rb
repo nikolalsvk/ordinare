@@ -9,25 +9,36 @@ module Ordinare
   end
 
   def parse_args
+    path = "Gemfile"
+    overwrite = true
+    version = nil
+    help = nil
+
     OptionParser.new do |opts|
       opts.banner = "Usage: ordinare inside your Rails project"
+      opts.separator ""
+      opts.separator "Specific options:"
 
       opts.on("-pFILE", "--path=FILE", "Order file") do |filename|
-        Ordinare.sort(true, filename)
+        path = filename
       end
 
       opts.on("-n", "--no-overwrite", "Don't overwrite Gemfile") do
-        Ordinare.sort(false)
+        overwrite = false
       end
 
       opts.on("-v", "--version", "Check gem version") do
         puts Ordinare::VERSION
+        version = true
       end
 
       opts.on("-h", "--help", "Get help") do
         puts opts
+        help = true
       end
     end.parse!
+
+    Ordinare.sort(overwrite, path) unless version || help
   end
 
   def sort(overwrite = true, path = "Gemfile")
