@@ -99,6 +99,20 @@ $ ordinare --no-overwrite
 And that's it!
 You can find your ordered Gemfile at `Gemfile.ordinare`.
 
+### Check if Gemfile is sorted
+
+There is an option to check your Gemfile to see if it's sorted.
+This will not overwrite nor create a new sorted Gemfile.
+
+Call ordinare like this:
+```
+ordinare --check
+```
+
+And that's it, ordinare will inform your whether your Gemfile is
+sorted properly or not. This can be useful on some CI server
+where you check if Gemfile is sorted.
+
 ## Contributing :writing_hand:
 
 Any suggestions and improvements are more than welcome :bowing_man:.
