@@ -1,43 +1,146 @@
 require "spec_helper"
-require "fileutils"
 
 describe Ordinare do
-  describe "hi"  do
+  describe "#hi"  do
     it "says hi in italian" do
       expect(Ordinare.hi).to eq "Ciao, sono Ordinare"
     end
   end
 
-  describe "sort" do
-    context "no Gemfile found" do
-      it "aborts with message" do
-        expect { Ordinare.sort(false, "spec/fixtures/no_gemfile") }.to raise_error(SystemExit)
+  describe "#parse_args" do
+    context "path to Gemfile is passed" do
+      context "using -p" do
+        before { ARGV = ["-p spec/fixtures/Gemfile"] }
+
+        it "calls sort_gemfile" do
+          expect(Ordinare::Sort).to receive(:sort_gemfile).with(true, " spec/fixtures/Gemfile")
+
+          Ordinare.parse_args
+        end
+      end
+
+      context "using --path" do
+        before do
+          ARGV = ["--path=spec/fixtures/Gemfile"]
+        end
+
+        it "calls sort_gemfile" do
+          expect(Ordinare::Sort).to receive(:sort_gemfile).with(true, "spec/fixtures/Gemfile")
+
+          Ordinare.parse_args
+        end
       end
     end
 
-    context "Gemfile found" do
-      it "sorts basic Gemfile" do
-        basic_gemfile = "spec/fixtures/basic_gemfile/Gemfile"
-        Ordinare.sort(false, basic_gemfile)
+    context "no overwrite option is passed" do
+      context "using -n" do
+        before { ARGV = ["-n"] }
 
-        same_files = FileUtils.identical?("#{basic_gemfile}.ordered", "#{basic_gemfile}.ordinare")
-        expect(same_files).to be_truthy
+        it "calls sort_gemfile" do
+          expect(Ordinare::Sort).to receive(:sort_gemfile).with(false, "Gemfile")
+
+          Ordinare.parse_args
+        end
       end
 
-      it "sorts Gemfile with groups" do
-        group_gemfile = "spec/fixtures/group_gemfile/Gemfile"
-        Ordinare.sort(false, group_gemfile)
+      context "using --no-overwrite" do
+        before { ARGV = ["--no-overwrite"] }
 
-        same_files = FileUtils.identical?("#{group_gemfile}.ordered", "#{group_gemfile}.ordinare")
-        expect(same_files).to be_truthy
+        it "calls sort_gemfile" do
+          expect(Ordinare::Sort).to receive(:sort_gemfile).with(false, "Gemfile")
+
+          Ordinare.parse_args
+        end
+      end
+    end
+
+    context "check if Gemfile is sorted properly" do
+      context "using -c" do
+        before { ARGV = ["-c"] }
+
+        it "calls gemfile_sorted?" do
+          expect(Ordinare::Check).to receive(:gemfile_sorted?).with("Gemfile")
+
+          Ordinare.parse_args
+        end
       end
 
-      it "sorts complicated Gemfile" do
-        complex_gemfile = "spec/fixtures/complex_gemfile/Gemfile"
-        Ordinare.sort(false, complex_gemfile)
+      context "using --check" do
+        before { ARGV = ["--check"] }
 
-        same_files = FileUtils.identical?("#{complex_gemfile}.ordered", "#{complex_gemfile}.ordinare")
-        expect(same_files).to be_truthy
+        it "calls gemfile_sorted?" do
+          expect(Ordinare::Check).to receive(:gemfile_sorted?).with("Gemfile")
+
+          Ordinare.parse_args
+        end
+      end
+    end
+
+    context "get Ordinare version" do
+      context "using -v" do
+        before { ARGV = ["-v"] }
+
+        it "doesn't call gemfile_sorted" do
+          expect(Ordinare::Check).not_to receive(:gemfile_sorted?)
+
+          Ordinare.parse_args
+        end
+
+        it "doesn't call sort_gemfile" do
+          expect(Ordinare::Sort).not_to receive(:sort_gemfile)
+
+          Ordinare.parse_args
+        end
+      end
+
+      context "using --version" do
+        before { ARGV = ["--version"] }
+
+        it "doesn't call gemfile_sorted" do
+          expect(Ordinare::Check).not_to receive(:gemfile_sorted?)
+
+          Ordinare.parse_args
+        end
+
+        it "doesn't call sort_gemfile" do
+          expect(Ordinare::Sort).not_to receive(:sort_gemfile)
+
+          Ordinare.parse_args
+        end
+      end
+    end
+
+    context "get help" do
+      context "using -h" do
+        before { ARGV = ["-h"] }
+
+        it "doesn't call gemfile_sorted" do
+          expect(Ordinare::Check).not_to receive(:gemfile_sorted?)
+
+          Ordinare.parse_args
+        end
+
+        it "doesn't call sort_gemfile" do
+          expect(Ordinare::Sort).not_to receive(:sort_gemfile)
+
+          Ordinare.parse_args
+        end
+      end
+
+      context "using --help" do
+        before { ARGV = ["--help"] }
+
+        it "doesn't call gemfile_sorted" do
+          expect(Ordinare::Check).not_to receive(:gemfile_sorted?)
+
+          Ordinare.parse_args
+        end
+
+        it "doesn't call sort_gemfile" do
+          expect(Ordinare::Sort).not_to receive(:sort_gemfile)
+
+          Ordinare.parse_args
+        end
       end
     end
   end

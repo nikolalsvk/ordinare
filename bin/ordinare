@@ -5,5 +5,5 @@ require "ordinare"
 if ARGV.size > 0
   Ordinare.parse_args
 else
-  Ordinare.sort
+  Ordinare::Sort.sort_gemfile
 end
