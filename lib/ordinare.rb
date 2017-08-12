@@ -30,6 +30,10 @@ module Ordinare
         overwrite = false
       end
 
+      opts.on("-c", "--check", "Check if Gemfile is sorted properly") do
+        check = true
+      end
+
       opts.on("-v", "--version", "Check gem version") do
         puts Ordinare::VERSION
         version = true
@@ -46,6 +50,7 @@ module Ordinare
     if check
       Ordinare::Check.gemfile_sorted?(path)
     else
+      puts path
       Ordinare::Sort.sort_gemfile(overwrite, path)
     end
   end
