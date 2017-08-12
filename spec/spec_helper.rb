@@ -1,3 +1,9 @@
+require "simplecov"
+SimpleCov.start
+
+require "codecov"
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 require "ordinare"
 
 RSpec.configure do |config|
