@@ -15,8 +15,14 @@ module Ordinare
         abort("No Gemfile found in the current directory, is this a Rails project with Gemfile?")
       end
 
-      content = File.readlines(@read_path)
+      read_content = File.readlines(@read_path)
 
+      write_content = sort_content(read_content)
+
+      write_to_a_file(write_content)
+    end
+
+    def sort_content(content)
       ranges_to_sort = find_ranges_of_gems(content)
 
       ranges_to_sort.each do |range|
@@ -24,12 +30,10 @@ module Ordinare
           content[range[:start_index]..range[:end_index]].sort
       end
 
-      File.open(@write_path, "w+") do |file|
-        content.each { |line| file.puts(line) }
-      end
-
-      puts "Your sorted Gemfile can be found at #{@write_path} path"
+      content
     end
+
+    private
 
     def find_ranges_of_gems(content)
       gems = content.each_with_index.map do |line, index|
@@ -64,6 +68,14 @@ module Ordinare
         end
       end
       ranges_to_sort
+    end
+
+    def write_to_a_file(content)
+      File.open(@write_path, "w+") do |file|
+        content.each { |line| file.puts(line) }
+      end
+
+      puts "Your sorted Gemfile can be found at #{@write_path} path"
     end
   end
 end
