@@ -2,7 +2,7 @@ require "spec_helper"
 require "fileutils"
 
 describe Ordinare::Sort do
-  describe "sort" do
+  describe "#sort_gemfile" do
     context "no Gemfile found" do
       it "aborts with message" do
         expect {

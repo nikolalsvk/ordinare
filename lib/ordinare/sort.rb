@@ -4,6 +4,10 @@ module Ordinare
       new(overwrite, path).sort_gemfile
     end
 
+    def self.sort_content(path = "Gemfile", content)
+      new(false, path).sort_content(content)
+    end
+
     def initialize(overwrite, path)
       @overwrite = overwrite
       @read_path = path
@@ -12,14 +16,14 @@ module Ordinare
 
     def sort_gemfile
       unless File.file?(@read_path)
-        abort("No Gemfile found in the current directory, is this a Rails project with Gemfile?")
+        abort "No Gemfile found in the current directory, is this a Rails project with Gemfile?"
       end
 
       read_content = File.readlines(@read_path)
 
-      write_content = sort_content(read_content)
+      ordered_content = sort_content(read_content)
 
-      write_to_a_file(write_content)
+      write_to_a_file(ordered_content)
     end
 
     def sort_content(content)

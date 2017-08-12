@@ -1,5 +1,6 @@
 require "ordinare/version"
 require "ordinare/sort"
+require "ordinare/check"
 require "optparse"
 
 module Ordinare
@@ -43,7 +44,7 @@ module Ordinare
     return if version || help
 
     if check
-      Ordinare.check(path)
+      Ordinare::Check.gemfile_sorted?(path)
     else
       Ordinare::Sort.sort_gemfile(overwrite, path)
     end
