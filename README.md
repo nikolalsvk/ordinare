@@ -4,6 +4,7 @@
 [![Gem Version](https://badge.fury.io/rb/ordinare.svg)](https://badge.fury.io/rb/ordinare)
 [![codecov](https://codecov.io/gh/nikolalsvk/ordinare/branch/master/graph/badge.svg)](https://codecov.io/gh/nikolalsvk/ordinare)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#5-make-a-pull-request)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnikolalsvk%2Fordinare.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnikolalsvk%2Fordinare?ref=badge_shield)
 
 Ordinare sorts gems in your Gemfile alphabetically
 
@@ -118,3 +119,7 @@ where you check if Gemfile is sorted.
 Any suggestions and improvements are more than welcome :bowing_man:.
 
 If you'd like to contribute, you can check [CONTRIBUTING.md](CONTRIBUTING.md)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnikolalsvk%2Fordinare.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnikolalsvk%2Fordinare?ref=badge_large)
