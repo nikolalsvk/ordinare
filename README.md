@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/nikolalsvk/ordinare/branch/master/graph/badge.svg)](https://codecov.io/gh/nikolalsvk/ordinare)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#5-make-a-pull-request)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnikolalsvk%2Fordinare.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnikolalsvk%2Fordinare?ref=badge_shield)
+[![Open Source Helpers](https://www.codetriage.com/nikolalsvk/ordinare/badges/users.svg)](https://www.codetriage.com/nikolalsvk/ordinare)
 
 Ordinare sorts gems in your Gemfile alphabetically
 
